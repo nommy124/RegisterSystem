@@ -1,0 +1,26 @@
+# Pseudocode for main menu 
+
+1. Login for the employee 
+    - Two logins (one for each individual) 
+2. If password is correct 
+3. Go into main menu function
+4. Set while condition to True  
+5. Display options 
+    - Option 1: Sales
+    - Option 2: Refunds 
+    - Option 3: Reports 
+    - Option 4: Inventory
+6. Ask user for menu option 
+7. Validate menu option 
+8. Nested IF statements for menu option 
+9. IF option equal to 1: 
+10. Call sales --> sales()
+11. ELIF option equal to 2: 
+12. Call refunds --> refunds()
+13. ELIF option equal to 3: 
+14. Call reports --> reports() - present as tabular data 
+     - Shows what has been sold 
+15. ELIF option equal to 4: 
+16. Call inventory --> inventory()
+17. ELSE 
+18. print "ERROR, You're an idiot!!" 
