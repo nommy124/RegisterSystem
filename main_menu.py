@@ -1,4 +1,4 @@
-
+from inventory import *
 
 
 def main():
@@ -12,6 +12,7 @@ def main():
         if apple == True:
 
             main_menu()
+            break
 
         else:
 
@@ -23,7 +24,8 @@ def main_menu():
     exit_code = True
 
     while exit_code == True:
-        
+
+        print (items[1][0])  # TESTING IF ITEM IMPORTS CORRECTLY. IT DOES :)      
         print("=== Register Main Menu === \n ")
         print("Option 1: Sales ")
         print("Option 2: Refunds ")
@@ -31,7 +33,7 @@ def main_menu():
         print("Option 4: Inventory ")
         print("Option 5: Exit Program\n ")
 
-        option = input("Plese enter the corresponding option number: ")
+        option = int(input("Please enter the corresponding option number: "))
 
         if option == 1:
             sales()
@@ -41,10 +43,12 @@ def main_menu():
             reports()
         elif option == 4:
             inventory()
-        if option == 5:
+        elif option == 5:
+            print("The Program will now exit.... Goodbye!")
             exit_code = False
-        #else:
-            #print ("error, none of the inputs entered were valid. Please try again")
+            break
+        else:
+            print ("error, none of the inputs entered were valid. Please try again")
             
 
 # login function - final project 
@@ -55,8 +59,11 @@ def login():
 
     exit_code = False
     while exit_code == False:
-        
 
+        print("------------------------------------------------")
+        print("Hello, Please enter your login credentials below")
+        print("------------------------------------------------\n")
+        
         user = input("Username: ")
 
         password = input("Password: ")
@@ -69,7 +76,7 @@ def login():
 
             if (user in us) and (password in pw):
 
-                print("Login correct")
+                print("Login correct\n")
                 exit_code = True
                 return True
               

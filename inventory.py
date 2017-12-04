@@ -46,12 +46,13 @@ produce = { 1: ["Apple", 1.50, 100, 0],
     }
 
 
-# examples - shauib review this please to understand
+# examples - shauib review this please to understand. comment out to run
 
-print (items[1][1]) # prints only price
-print (items[10][0],items[10][1]) # prints both item and price "wine 15.00"
-
-items[1][3] += 1
-items[1][2] -= 1
-print (items [1][0], items[1][2], items[1][3]) # prints newly updated 'milk 99 1'
+##
+##print (items[1][1]) # prints only price
+##print (items[10][0],items[10][1]) # prints both item and price "wine 15.00"
+##
+##items[1][3] += 1
+##items[1][2] -= 1
+##print (items [1][0], items[1][2], items[1][3]) # prints newly updated 'milk 99 1'
 
