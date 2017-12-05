@@ -25,8 +25,9 @@ def main_menu():
 
     while exit_code == True:
 
-        print (items[1][0])  # TESTING IF ITEM IMPORTS CORRECTLY. IT DOES :)      
-        print("=== Register Main Menu === \n ")
+        print("------------------------------------------------")    
+        print("=== Register Main Menu ===  ")
+        print("------------------------------------------------\n")
         print("Option 1: Sales ")
         print("Option 2: Refunds ")
         print("Option 3: Reports ")
@@ -85,6 +86,50 @@ def login():
 
 
         file.close()
+
+
+def refunds():
+
+    print("------------------------------------------------")
+    print ("===== Refund Processing Center =====\n")
+    print("------------------------------------------------\n")
+
+    refund = int(input("Enter the item number of which you would like to refund: "))
+
+    quantity = int(input("Enter item quantity to remove: "))
+    try:
+        
+        (items[refund][3]) -= quantity 
+        (items[refund][2]) += quantity
+        print ("The newly updated record is: \n")
+        print (items[refund])
+
+    except KeyError:
+        print ("\nInvalid item number, please re-enter 'refunds' module and try again\n")
+    
+def inventory():
+    
+    print("------------------------------------------------")
+    print (" ===== Display of current Inventory =====\n ")
+    print("------------------------------------------------\n")
+    print ("===== Items =====")
+    print (" Item number - item - price - rem. stock ")
+
+    for i in items:
+        print ("\t", i, "   ", items[i][0],"   ", items[i][1], "    ", items[i][2] )
+
+    print ("===== Produce =====")
+    print (" Item number - item - price - rem. stock ")
+               
+    for i in produce:
+        print ("\t", i, "   ", produce[i][0],"   ", produce[i][1], "    ", produce[i][2] )
+        
+        
+
+
+
+        
+              
 
 
 main()
