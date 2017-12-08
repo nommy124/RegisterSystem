@@ -1,7 +1,13 @@
 from inventory import *
+from ascii_art import ascii_art
 
 
-def main():
+def main(): #main function
+    print("********Welcome to the Grocery Shopping Calculator********")
+
+    ascii_art() #displays ascii grocery cart 
+ 
+
 
     apple = login()
 
@@ -20,19 +26,21 @@ def main():
 
 def main_menu():
 
+    menu = "------------------------------------------------\n" + \
+           "=== Register Main Menu ===\n" + \
+           "------------------------------------------------\n" + \
+           "Option 1: Sales\n" + \
+           "Option 2: Refunds\n" + \
+           "Option 3: Reports\n" + \
+           "Option 4: Inventory\n" + \
+           "Option 5: Exit program\n" 
 
-    exit_code = True
+    exit_code = True #flag created 
 
     while exit_code == True:
 
-        print("------------------------------------------------")    
-        print("=== Register Main Menu ===  ")
-        print("------------------------------------------------\n")
-        print("Option 1: Sales ")
-        print("Option 2: Refunds ")
-        print("Option 3: Reports ")
-        print("Option 4: Inventory ")
-        print("Option 5: Exit Program\n ")
+        print(menu) #outputs menu
+
 
         option = int(input("Please enter the corresponding option number: "))
 
@@ -51,8 +59,7 @@ def main_menu():
         else:
             print ("error, none of the inputs entered were valid. Please try again")
             
-
-# login function - final project 
+ 
 
 
 
@@ -60,6 +67,7 @@ def login():
 
     exit_code = False
     while exit_code == False:
+        
 
         print("------------------------------------------------")
         print("Hello, Please enter your login credentials below")
@@ -116,7 +124,7 @@ def inventory():
     print (" Item number - item - price - rem. stock ")
 
     for i in items:
-        print ("\t", i, "   ", items[i][0],"   ", items[i][1], "    ", items[i][2] )
+        print ("\t", i, "   ",items[i][0],"   ", items[i][1], "    ", items[i][2] )
 
     print ("===== Produce =====")
     print (" Item number - item - price - rem. stock ")
