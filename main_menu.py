@@ -2,12 +2,11 @@ from inventory import *
 from ascii_art import ascii_art
 
 
-def main(): #main function
+def main():
+
     print("********Welcome to the Grocery Shopping Calculator********")
 
-    ascii_art() #displays ascii grocery cart 
- 
-
+    ascii_art()
 
     apple = login()
 
@@ -17,30 +16,28 @@ def main(): #main function
 
         if apple == True:
 
-            main_menu()
+            menu()
             break
 
         else:
 
             print(" The password provided was incorrect, please try again. ")
 
-def main_menu():
+def menu():
 
-    menu = "------------------------------------------------\n" + \
-           "=== Register Main Menu ===\n" + \
-           "------------------------------------------------\n" + \
-           "Option 1: Sales\n" + \
-           "Option 2: Refunds\n" + \
-           "Option 3: Reports\n" + \
-           "Option 4: Inventory\n" + \
-           "Option 5: Exit program\n" 
 
-    exit_code = True #flag created 
+    exit_code = True
 
     while exit_code == True:
 
-        print(menu) #outputs menu
-
+        print("------------------------------------------------")    
+        print("=== Register Main Menu ===  ")
+        print("------------------------------------------------\n")
+        print("Option 1: Sales ")
+        print("Option 2: Refunds ")
+        print("Option 3: Reports ")
+        print("Option 4: Inventory ")
+        print("Option 5: Exit Program\n ")
 
         option = int(input("Please enter the corresponding option number: "))
 
@@ -59,7 +56,8 @@ def main_menu():
         else:
             print ("error, none of the inputs entered were valid. Please try again")
             
- 
+
+# login function - final project 
 
 
 
@@ -67,7 +65,6 @@ def login():
 
     exit_code = False
     while exit_code == False:
-        
 
         print("------------------------------------------------")
         print("Hello, Please enter your login credentials below")
@@ -102,7 +99,7 @@ def refunds():
     print ("===== Refund Processing Center =====\n")
     print("------------------------------------------------\n")
 
-    refund = int(input("Enter the item number of which you would like to refund: "))
+    refund = int(input(" Refunds - Item Number: "))
 
     quantity = int(input("Enter item quantity to remove: "))
     try:
@@ -114,6 +111,53 @@ def refunds():
 
     except KeyError:
         print ("\nInvalid item number, please re-enter 'refunds' module and try again\n")
+
+
+def sales():
+    
+    print("------------------------------------------------")
+    print ("===== Sales Center =====")
+    print("------------------------------------------------")
+    
+    while True:
+
+        print("(Enter -1 to complete check out process)")
+        
+        item = int(input("Employee, Enter item number: "))
+
+        if item == -1:
+            break
+            
+        quantity = int(input("Item Quantity: "))
+        try:
+            
+            (items[item][3]) += quantity 
+            (items[item][2]) -= quantity
+            print (items[item])
+            
+            fp = open('receipt.txt', 'w+')
+
+
+            fp.write((str(items[item][0]))+ ", " +(str(items[item][1])) + ", " + str(quantity)+", " + str((items[item][1])*(quantity)) +"\n")
+            
+            fp.close()
+      
+
+        except KeyError:
+            print ("\nInvalid item number, please re-enter 'refunds' module and try again\n")
+
+    print("---------------------")
+    print("Here is your Receipt:")
+    print("---------------------")
+    f = open('receipt.txt', 'r')
+
+    message = f.read()
+
+    print(message)
+
+    f.close()
+    
+
     
 def inventory():
     
@@ -124,15 +168,16 @@ def inventory():
     print (" Item number - item - price - rem. stock ")
 
     for i in items:
-        print ("\t", i, "   ",items[i][0],"   ", items[i][1], "    ", items[i][2] )
+        print ("\t", i, "   ", items[i][0],"   ", items[i][1], "    ", items[i][2] )
 
-    print ("===== Produce =====")
-    print (" Item number - item - price - rem. stock ")
-               
-    for i in produce:
-        print ("\t", i, "   ", produce[i][0],"   ", produce[i][1], "    ", produce[i][2] )
-        
-        
+    input("Press ENTER to Continue...")
+
+#def payment():
+
+
+#def report():
+
+    
 
 
 
